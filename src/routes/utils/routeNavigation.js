@@ -9,14 +9,11 @@ export default Object.freeze({
   security: {
     SIGN_UP: `${API_ROOT}/signup`,
     LOGIN: `${API_ROOT}/login`,
-    SOCIAL_LOGIN: `${API_ROOT}/social-login`,
   },
   user: {
     PROFILE: `${USER_ROOT}/profile`,
     CHANGE_PASSWORD: `${USER_ROOT}/change-password`,
-    UPLOAD_PROFILE_PICTURE: `${USER_ROOT}/profile-picture`,
     FORGOT_PASSWORD: `${USER_ROOT}/forgot-password`,
-    RESET_PASSWORD: `${USER_ROOT}/reset-password`,
   },
   test: {
     TEST_ACTION: `${API_ROOT}/test/`,
