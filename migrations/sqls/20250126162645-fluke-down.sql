@@ -17,20 +17,21 @@ DROP TRIGGER IF EXISTS trg_user_details_updated_on ON user_details;
 DROP FUNCTION IF EXISTS set_updated_on;
 
 -- Drop Tables
-DROP TABLE IF EXISTS route_staff;
-DROP TABLE IF EXISTS route;
-DROP TABLE IF EXISTS staff;
-DROP TABLE IF EXISTS booking;
-DROP TABLE IF EXISTS passenger;
 DROP TABLE IF EXISTS user_booking;
 DROP TABLE IF EXISTS user_roles;
-DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS user_details;
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS airport;
-DROP TABLE IF EXISTS airline;
+DROP TABLE IF EXISTS passenger;
+DROP TABLE IF EXISTS booking;
+DROP TABLE IF EXISTS route_staff;
+DROP TABLE IF EXISTS route;
 DROP TABLE IF EXISTS flight;
+DROP TABLE IF EXISTS airline;
+DROP TABLE IF EXISTS airport;
+DROP TABLE IF EXISTS staff;
+DROP TABLE IF EXISTS roles;
+DROP TABLE IF EXISTS users;
 
 -- Drop Types
 DROP TYPE IF EXISTS status_enum;
 DROP TYPE IF EXISTS staff_status_enum;
+DROP TYPE IF EXISTS booking_status;

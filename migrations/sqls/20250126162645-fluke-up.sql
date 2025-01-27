@@ -122,11 +122,13 @@ CREATE TABLE route_staff (
     CONSTRAINT fk_route FOREIGN KEY (assigned_route_id) REFERENCES route (id) ON DELETE CASCADE
 );
 
+CREATE TYPE booking_status AS ENUM ('Pending', 'Confirmed', 'Cancelled', 'Completed');
+
 CREATE TABLE booking (
     id SERIAL PRIMARY KEY,
     route_id INT NOT NULL,
     seats_booked SMALLINT NOT NULL,
-    status VARCHAR(50) NOT NULL,
+    status booking_status NOT NULL,
     total_price INT NOT NULL,
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
