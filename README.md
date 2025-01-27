@@ -1,4 +1,4 @@
-# [Fluke]
+# Fluke
 
 ## Dependencies:
 - Node 20>= (javascript runtime)
