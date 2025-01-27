@@ -14,31 +14,36 @@ class Right {
   static general = Object.freeze({
     /* General Rights */
     PING: 'PING',
-    LOGIN: 'LOGIN',
+    TEST_API: 'TEST_API',
+    VIEW_ROUTES: 'VIEW_ROUTES',
+  });
+
+  static user = Object.freeze({
+    /* User Rights */
     UPDATE_PROFILE: 'UPDATE_PROFILE',
     VIEW_PROFILE: 'VIEW_PROFILE',
-    UPLOAD_PROFILE_PICTURE: 'UPLOAD_PROFILE_PICTURE',
-    USER_PERMISSIONS: 'USER_PERMISSIONS',
-    VIEW_FORM: 'VIEW_FORM',
-
-    /* Test Url only available in development env */
-    TEST_API: 'TEST_API',
+    CHANGE_PASSWORD: 'CHANGE_PASSWORD',
+    BOOKING: 'BOOKING',
+    VIEW_BOOKING: 'VIEW_BOOKING',
+    UPDATE_BOOKING: 'UPDATE_BOOKING',
+    UPDATE_BOOKING_PASSENGER: 'UPDATE_BOOKING_PASSENGER',
   });
 
   static admin = Object.freeze({
     /* Admin-specific Rights */
     MANAGE_USERS: 'MANAGE_USERS',
-    VIEW_ALL_PROFILES: 'VIEW_ALL_PROFILES',
-    EDIT_ANY_PROFILE: 'EDIT_ANY_PROFILE',
-    DELETE_USER: 'DELETE_USER',
-    MANAGE_SETTINGS: 'MANAGE_SETTINGS',
+    MANAGE_ROUTES: 'MANAGE_ROUTES',
+    MANAGE_FLIGHTS: 'MANAGE_FLIGHTS',
+    MANAGE_AIRLINE: 'MANAGE_AIRLINE',
+    MANAGE_AIRPORT: 'MANAGE_AIRPORT',
+    MANAGE_BOOKING: 'MANAGE_BOOKING',
+    MANAGE_STAFF: 'MANAGE_STAFF',
   });
 
   static superAdmin = Object.freeze({
     /* Super Admin-specific Rights */
     MANAGE_ROLES: 'MANAGE_ROLES',
     VIEW_ALL_DATA: 'VIEW_ALL_DATA',
-    CONFIGURE_SYSTEM: 'CONFIGURE_SYSTEM',
     DELETE_ANY_USER: 'DELETE_ANY_USER',
     FULL_ACCESS: 'FULL_ACCESS',
   });
@@ -51,6 +56,7 @@ class Right {
   static userRights() {
     return [].concat(
       Right.getRightArray(this.general),
+      Right.getRightArray(this.user),
     );
   }
 
@@ -60,6 +66,7 @@ class Right {
   static adminRights() {
     return [].concat(
       Right.getRightArray(this.general),
+      Right.getRightArray(this.user),
       Right.getRightArray(this.admin),
     );
   }
@@ -70,6 +77,7 @@ class Right {
   static superAdminRights() {
     return [].concat(
       Right.getRightArray(this.general),
+      Right.getRightArray(this.user),
       Right.getRightArray(this.admin),
       Right.getRightArray(this.superAdmin),
     );
