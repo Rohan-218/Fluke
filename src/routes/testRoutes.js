@@ -5,7 +5,7 @@ import { Right } from '../auth';
 export default () => {
   put(featureLevel.development,
     Right.general.TEST_API,
-    routes.test.TEST_ACTION,
+    routes.TEST.TEST_ACTION,
     async () => {
       return {
         message: 'ok',

@@ -13,7 +13,7 @@ import {
 export default () => {
   get(
     featureLevel.production,
-    Right.general.VIEW_PROFILE,
+    Right.USER.PROFILE,
     routes.user.PROFILE,
     async (req) => {
       const service = Container.get(UserService);
@@ -23,22 +23,12 @@ export default () => {
 
   put(
     featureLevel.production,
-    Right.general.CHANGE_PASSWORD,
+    Right.USER.CHANGE_PASSWORD,
     routes.user.CHANGE_PASSWORD,
     async (req) => {
       const service = Container.get(UserService);
       const data = await changeUserPasswordSchema.validateAsync(req.body);
       return await service.changePassword(data, { ...req.currentUser });
-    },
-  );
-
-  publicPost(
-    featureLevel.production,
-    routes.user.FORGOT_PASSWORD,
-    async (req) => {
-      const service = Container.get(UserService);
-      const { email } = await forgotPasswordSchema.validateAsync(req.body);
-      return await service.forgetPassword(email);
     },
   );
 };

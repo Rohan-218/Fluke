@@ -11,7 +11,7 @@ import {
 export default () => {
   publicPost(
     featureLevel.production,
-    routes.security.LOGIN,
+    routes.LOGIN,
     async (req) => {
       const service = Container.get(SecurityService);
       const { email, password } = await loginSchema.validateAsync(req.body);
@@ -26,7 +26,7 @@ export default () => {
 
   publicPost(
     featureLevel.production,
-    routes.security.SIGN_UP, 
+    routes.SIGN_UP, 
     async (req) => {
       const service = Container.get(SecurityService);
       const signUpDto = await signupSchema.validateAsync(req.body); 

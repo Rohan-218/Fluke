@@ -10,14 +10,14 @@ import { messageResponse } from '../utils';
 export default () => {
   publicGet(
     featureLevel.production,
-    routes.healthCheck,
+    routes.HEALTH_CHECK,
     async () => messageResponse('ok'),
   );
 
   get(
     featureLevel.production,
     Right.general.PING,
-    routes.ping,
+    routes.PING,
     async () => messageResponse('ok'),
   );
 };
