@@ -136,3 +136,16 @@ export const regexValidator = (pattern, messageKey, key) => (
   Joi.string().regex(pattern)
     .messages(joiStringError(messageKey, key))
 );
+
+export const phoneNumberValidator = (messageKey, key) => (
+  Joi.string()
+    .pattern(/^[0-9]{10}$/) 
+    .messages({
+      ...joiStringError(messageKey, key),
+      'string.pattern.base': `${messageKey}.${key} must be a valid phone number`,
+    })
+);
+
+export const requiredPhoneNumberValidator = (messageKey, key) => (
+  phoneNumberValidator(messageKey, key).required()
+);
