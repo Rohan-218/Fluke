@@ -17,7 +17,7 @@ class Role {
 
   roleIds = Object.freeze({
     USER: 1,
-    ADMIN: 1,
+    ADMIN: 2,
     SUPER_ADMIN: 3, // Added roleId for SUPER_ADMIN
   });
 
