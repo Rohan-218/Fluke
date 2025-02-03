@@ -180,6 +180,24 @@ CREATE TABLE user_details (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+CREATE TABLE user_login_details (
+  id BIGSERIAL PRIMARY KEY,
+  user_id BIGINT REFERENCES users ON UPDATE CASCADE ON DELETE CASCADE,
+  wrong_login_count INT DEFAULT 0 NOT NULL,
+  last_wrong_login_attempt TIMESTAMPTZ DEFAULT current_timestamp,
+  last_login TIMESTAMPTZ DEFAULT current_timestamp
+);
+
+CREATE TABLE user_login_history (
+  id BIGSERIAL PRIMARY KEY,
+  user_id BIGINT REFERENCES users ON UPDATE CASCADE ON DELETE CASCADE,
+  login_at TIMESTAMPTZ,
+  login_ip VARCHAR(25),
+  user_agent TEXT,
+  created_on TIMESTAMPTZ DEFAULT current_timestamp,
+  updated_on TIMESTAMPTZ DEFAULT current_timestamp
+);
+
 CREATE OR REPLACE FUNCTION set_updated_on()
 RETURNS TRIGGER AS $$
 BEGIN

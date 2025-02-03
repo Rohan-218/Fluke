@@ -17,6 +17,8 @@ DROP TRIGGER IF EXISTS trg_user_details_updated_on ON user_details;
 DROP FUNCTION IF EXISTS set_updated_on;
 
 -- Drop Tables
+DROP TABLE IF EXISTS user_login_history;
+DROP TABLE IF EXISTS user_login_details;
 DROP TABLE IF EXISTS user_booking;
 DROP TABLE IF EXISTS user_roles;
 DROP TABLE IF EXISTS user_details;
